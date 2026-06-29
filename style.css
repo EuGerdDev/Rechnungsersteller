@@ -1,0 +1,96 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
+}
+
+#contentcontainer {
+    background-color: steelblue;
+    padding: 5px;
+    position: relative;
+    width: 700px; /* Erweitert, damit alle absoluten Elemente Platz haben */
+}
+
+.cost {
+    width: 100%; /* Nutzt die volle Breite des Containers */
+    font-size: 20px;
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 1000px;
+}
+
+.costname {
+    position: absolute;
+    left: 10px;
+}
+
+/* Reihenfolge korrigiert: Erst Anzahl (150px), dann Einzelpreis (220px), dann Summe (400px) */
+.costamount {
+    position: absolute;
+    left: 600px;
+}
+.costcost {
+    position: absolute;
+    left: 600px;
+}
+.costsum {
+    position: absolute;
+    left: 600px;
+}
+
+
+#sum {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block; /* Sorgt dafür, dass die Summe sauber unter den Elementen steht */
+}
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Eingabebereich oben */
+#costcontainer div {
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+
+
+input[type="text"] { width: 180px; }
+input[type="number"] { width: 80px; }
+
+/* Buttons nebeneinander platzieren */
+button {
+    font-family: Cambria, serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin: 15px 5px 15px 0;
+    cursor: pointer;
+    background-color: #e1e1e1;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #d2d2d2;
+}
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+input {
+    font-family: Cambria, serif;
+    font-size: 16px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 15px; /* Abstand zum nächsten Label */
+}
