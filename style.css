@@ -27,11 +27,11 @@ body {
 /* Reihenfolge korrigiert: Erst Anzahl (150px), dann Einzelpreis (220px), dann Summe (400px) */
 .costamount {
     position: absolute;
-    left: 600px;
+    left: 430px;
 }
 .costcost {
     position: absolute;
-    left: 600px;
+    left: 300px;
 }
 .costsum {
     position: absolute;
@@ -41,7 +41,7 @@ body {
 
 #sum {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 10px;
     display: block; /* Sorgt dafür, dass die Summe sauber unter den Elementen steht */
@@ -93,4 +93,18 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 15px; /* Abstand zum nächsten Label */
+}
+#company {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+#time {
+    font-size: 20px;
+    margin-left: 10px;
+}
+.deleteButton {
+    background-color: red;
 }
