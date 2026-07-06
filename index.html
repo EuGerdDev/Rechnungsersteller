@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <input type="text" id="companyInput" placeholder="Firmanamen eingeben" oninput="showCosts()">
     <div id="costcontainer"></div>
     <button onclick="addCost()">Kosten Hinzufügen</button>
     <button onclick="showCosts()">Ausrechnen</button>
+    
     <div id="contentcontainer">
+        <h1 id="company">Edeka</h1>
         <div id="resultcostcontainer"></div>
         <h2 id="sum"></h2>
+        <span id="time"></span>
     </div>
     
     
