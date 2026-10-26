@@ -25,7 +25,7 @@ let sum = 0;
 function showCosts() {
     let resultcostcontainer = document.getElementById("resultcostcontainer");
     let companyInput = document.getElementById("companyInput").value;
-    resultcostcontainer.innerHTML = `<div class="cost"><span class="costname">Name</span><span class="costamount">Menge</span><span class="costcost">Eur</span><span class="costsum">Eur</span></div>`;
+    resultcostcontainer.innerHTML = `<div class="cost"><span class="costname">Name</span><span class="costamount">Menge</span><span class="costcost">Euro</span><span class="costsum">Euro</span></div>`;
     sum = 0;
     for (let index = 0; index < costs.length; index++) {
         if(costs[index].status == "active"){
@@ -60,4 +60,55 @@ function deleteCost(cost) {
     document.getElementById("costcost" + cost).style.display = "none";
     document.getElementById("deleteCost" + cost).style.display = "none";
     showCosts();
+}
+function downloadCosts() {
+    let text = document.getElementById("company").textContent + "\n";
+    text += document.getElementById("time").textContent + "\n\n";
+
+    for (let index = 0; index < costs.length; index++) {
+        if (costs[index].status == "active") {
+            text += "Name: " + costs[index].name + "\n";
+            text += "Menge: " + costs[index].amount + "\n";
+            text += "Kosten: " + costs[index].cost.toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €\n";
+            text += "Summe: " + costs[index].sum.toLocaleString("de-DE", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " €\n\n";
+        }
+    }
+
+    text += document.getElementById("sum").textContent;
+
+    let file = new Blob([text], {type: "text/plain;charset=utf-8"});
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(file);
+    link.download = "Kosten.txt";
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+function sendCostsGmail() {
+    sendCostsOnline("https://mail.google.com/mail/?view=cm&fs=1");
+}
+
+function sendCostsWebDe() {
+    sendCostsOnline("https://web.de");
+}
+
+function sendCostsOnline(url) {
+    let text = document.getElementById("company").textContent + "\n";
+    text += document.getElementById("time").textContent + "\n\n";
+
+    for (let index = 0; index < costs.length; index++) {
+        if (costs[index].status == "active") {
+            text += costs[index].name + " | ";
+            text += costs[index].amount + " x ";
+            text += costs[index].cost.toFixed(2) + " € = ";
+            text += costs[index].sum.toFixed(2) + " €\n";
+        }
+    }
+
+    text += "\n" + document.getElementById("sum").textContent;
+
+    navigator.clipboard.writeText(text).then(function() {
+        window.open(url, "_blank");
+    }).catch(function(error) {
+        console.log("Fehler beim Kopieren:", error);
+    });
 }
